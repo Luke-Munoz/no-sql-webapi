@@ -15,6 +15,7 @@ router.get('/:id', async(req, res) => {
         const findOneThought = await Thought.findOne({
             _id: req.params.id
         })
+        res.json(findOneThought)
     } catch (error) {
         res.json(error)
     }
@@ -34,8 +35,9 @@ router.put('/thought/:id', async(req, res) => {
         const updateThought = await Thought.updateOne({
             _id: req.params.id
         })
+        res.json(updateThought)
     } catch (error) {
-
+        res.json(error)
     }
 })
 
@@ -50,10 +52,12 @@ router.delete('/thought/:id', async(req, res) => {
     }
 })
 
-router.post('/api/thoughts/:thoughtId/reactions', async(req, res) => {
-    try {
-        const
-    } catch (error) {
+// router.post('/api/thoughts/:thoughtId/reactions', async(req, res) => {
+//     try {
+//         const
+//     } catch (error) {
 
-    }
-})
+//     }
+// })
+
+module.exports = router;

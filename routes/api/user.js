@@ -7,7 +7,7 @@ router.get('/', async(req, res) => {
     } catch (error) {
         res.json(error)
     }
-})
+});
 
 router.get('/:id', async(req, res) => {
     try {
@@ -18,7 +18,7 @@ router.get('/:id', async(req, res) => {
     } catch (error) {
         res.json(error)
     }
-})
+});
 
 router.post('/', async(req, res) => {
     try {
@@ -27,6 +27,6 @@ router.post('/', async(req, res) => {
     } catch (error) {
         res.json(error)
     }
-})
+});
 
 module.exports = router;

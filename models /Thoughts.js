@@ -1,18 +1,18 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
-const reasctionsSchema = require('./reactions')
+const ReactionsSchema = require('./Reactions');
 const ThoughtsSchema = new Schema({
     thoughtText: {
         type: String,
         required: true,
         minlength: 1,
-        maxlength: 280
+        maxLength: 280
     },
     userName: {
         type: String,
         required: true
     },
-    reactions: [reasctionsSchema],
+    reactions: [ReactionsSchema],
 
     createdAt: {
         type: Date,
@@ -22,16 +22,15 @@ const ThoughtsSchema = new Schema({
 
 }, {
     toJSON: {
-        virtuals: true,
+        virtual: true,
     },
     id: false
 }, );
 
 
-UserSchema.virtual('reactionCount').get(function() {
+ThoughtsSchema.virtual('reactionCount').get(function() {
     return this.friends[0];
 })
 
 const Thought = model('Thought', ThoughtsSchema);
-
 module.exports = Thought;
